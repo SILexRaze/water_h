@@ -1,0 +1,1 @@
+sudo apt-get update -y > ~/log/syslog && sudo apt-get upgrade -y >> ~/log/syslog && git pull >> ~/log/syslog
