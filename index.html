@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<title>WaterH</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/png" href="ico.png" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+
+		<script type="text/javascript" src = "chart.js"></script>
+	</head>
+	<body>
+
+		<img alt="logo water_h" src="water_h.png" id="logo" />
+		<div id="container" style="height: 400px"></div>
+		<div id="LiveInfo">
+			<h1>Infos live :</h1>
+				<h2>Hauteur d'eau : <span id="actual_h"></span></h2>
+				<h2>Température : <span id="actual_t"></span></h2>
+				<script src="/code/highcharts-more.js"></script>
+				<script src="/code/modules/solid-gauge.js"></script>
+				<div class="outer">
+    			<div id="container-speed" class="container"></div>
+				</div>
+		</div>
+		<div id="bottom">
+			Made @ 42<br />Contact : vifonne@student.42.fr
+		</div>
+	</body>
+</html>
