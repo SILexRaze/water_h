@@ -1,3 +1,4 @@
+Highcharts.setOptions(Highcharts.theme);
 const	ajax = (json, method = "POST") => {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
