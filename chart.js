@@ -223,9 +223,9 @@ const	formatTab = (json, key) => {
 	return json.reduce((acc, elem) => {
 		var splitDate = elem.date.split("/")
 		var d = Date.UTC(splitDate[2], splitDate[1] - 1, splitDate[0], splitDate[3], splitDate[4])
-		if (key == "mesure")
+		if (key == "mesure" && elem[key] != 0)
 			acc.push([d, 47 - elem[key]])
-		else
+		else if (elem[key] != 0)
 			acc.push([d, elem[key]])
 		return acc
 	}, [])
