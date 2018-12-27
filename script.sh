@@ -7,8 +7,8 @@ hum=$(cat /var/www/html/wthr.json | tr ',' '\n' | tr '{' '\n' | grep -E '\"humid
 mesure=$(cat /var/www/html/tmp.json)
 date=$(date "+%d/%m/%Y/%H/%M" 2> /dev/null)
 rm -f /var/www/html/tmp.json /var/www/html/wthr.json /var/www/html/teste
-cat /var/www/html/data.json | sed '/^\]$/d' | sed 's/\}$/\},/g' > /var/www/html/data2.json
-mv /var/www/html/data2.json /var/www/html/data.json
 if [ $mesure -eq 0 ]
+	cat /var/www/html/data.json | sed '/^\]$/d' | sed 's/\}$/\},/g' > /var/www/html/data2.json
+	mv /var/www/html/data2.json /var/www/html/data.json
 	echo "\t{\n\t\t\"mesure\":$mesure,\n\t\t\"temp\":$temp,\n\t\t\"humidity\":$hum,\n\t\t\"date\":\"$date\"\n\t}\n]" >> /var/www/html/data.json
 fi
