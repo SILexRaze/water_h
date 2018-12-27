@@ -1,4 +1,3 @@
-Highcharts.setOptions(Highcharts.theme);
 const	ajax = (json, method = "POST") => {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -106,9 +105,9 @@ $(function () {
 				chart: {
 					type: 'solidgauge'
 				},
-			
+
 				title: null,
-			
+
 				pane: {
 					center: ['50%', '85%'],
 					size: '140%',
@@ -121,11 +120,11 @@ $(function () {
 						shape: 'arc'
 					}
 				},
-			
+
 				tooltip: {
 					enabled: false
 				},
-			
+
 				// the value axis
 				yAxis: {
 					stops: [
@@ -145,7 +144,7 @@ $(function () {
 						y: 16
 					}
 				},
-			
+
 				plotOptions: {
 					solidgauge: {
 						dataLabels: {
@@ -155,7 +154,54 @@ $(function () {
 						}
 					}
 				}
-			};			
+			};
+			var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
+				yAxis: {
+					min: -50,
+					max: 50,
+					title: {
+						text: 'Hauteur d\'eau'
+					}
+				},
+
+				credits: {
+					enabled: false
+				},
+
+				series: [{
+					name: 'Hauteur d\'eau',
+					data: [mesure[mesure.length - 1][1]],
+					dataLabels: {
+						format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+						((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+						'<span style="font-size:12px;color:silver">cm</span></div>'
+					},
+					tooltip: {
+						valueSuffix: ' cm'
+					}
+				}]
+
+			}));
+
+			// Bring life to the dials
+			setInterval(function () {
+				// Speed
+				var point,
+					newVal,
+					inc;
+
+				if (chartSpeed) {
+					point = chartSpeed.series[0].points[0];
+					inc = 0;
+					newVal = point.y + inc;
+
+					if (newVal < 0 || newVal > 200) {
+						newVal = point.y - inc;
+					}
+
+					point.update(newVal);
+				}
+			}, 2000);
 		}).catch((e) => {
 			console.log(e);
 		})
