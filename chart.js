@@ -330,9 +330,11 @@ $(function () {
 				// the value axis
 				yAxis: {
 					stops: [
+						[0.1, '#DF5353'], // red
+						[0.4, '#DDDF0D'], // yellow
 						[0.5, '#55BF3B'], // green
-						[0.2, '#DDDF0D'], // yellow
-						[0.1, '#DF5353'] // red
+						[0.6, '#DDDF0D'], // yellow
+						[0.9, '#DF5353'], // red
 					],
 					lineWidth: 0,
 					minorTickInterval: null,
