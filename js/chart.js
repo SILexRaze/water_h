@@ -44,9 +44,7 @@ $(function () {
 			var t = document.getElementById("actual_t")
 			if (h != null && t != null)
 			{
-				if (mesure[mesure.length - 1][1] < 110)
-					h.style.color = "red"
-				else if (mesure[mesure.length - 1][1] > 135)
+				if (mesure[mesure.length - 1][1] > 25 || mesure[mesure.length - 1][1] < -25)
 					h.style.color = "red"
 				else
 					h.style.color = "green"
