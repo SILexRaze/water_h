@@ -56,7 +56,7 @@ $(function () {
 				else if (diff < 0)
 					h.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"></i> `
 				else
-					h.innerHTML = "="
+					h.innerHTML = `<span id="arrow">=<s/span> `
 				h.innerHTML += ` <span id="txt"><span id="deltah">(Δ = </span>) </span>`
 				h.innerHTML += mesure[mesure.length - 1][1] + "cm";
 				document.getElementById("deltah").innerHTML += diff + "cm"
@@ -66,7 +66,7 @@ $(function () {
 				else if (diff < 0)
 					t.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"></i> `
 				else
-					t.innerHTML = "="
+					t.innerHTML = `<span id="arrow">=</span> `
 				t.innerHTML += ` <span id="txt"><span id="deltat">(Δ = </span>) </span>`
 				t.innerHTML += temp[temp.length - 1][1] + "°C";
 				document.getElementById("deltat").innerHTML += precise(diff) + "°C"
