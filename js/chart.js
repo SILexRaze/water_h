@@ -51,21 +51,21 @@ $(function () {
 				if (mesure.length > 1)
 					var diff = -1 * (mesure[mesure.length - 2][1] - mesure[mesure.length - 1][1])
 				if (diff > 0)
-					h.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-up"></i> `
+					h.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-up"> </i> `
 				else if (diff < 0)
-					h.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"></i> `
+					h.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"> </i> `
 				else
-					h.innerHTML = `<span id="arrow"><i class="fas fa-equals"></i></span></span> `
+					h.innerHTML = `<span id="arrow"><i class="fas fa-equals"></i> </span> `
 				h.innerHTML += ` <span id="txt"><span id="deltah">(Δ = </span>) </span>`
 				h.innerHTML += mesure[mesure.length - 1][1] + "cm";
 				document.getElementById("deltah").innerHTML += diff + "cm"
 				diff = temp[temp.length - 2][1] - temp[temp.length - 1][1]
 				if (diff < 0)
-					t.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-up"></i> `
+					t.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-up"> </i> `
 				else if (diff < 0)
-					t.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"></i> `
+					t.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"> </i> `
 				else
-					t.innerHTML = `<span id="arrow"><i class="fas fa-equals"></i></span> `
+					t.innerHTML = `<span id="arrow"><i class="fas fa-equals"></i> </span> `
 				t.innerHTML += ` <span id="txt"><span id="deltat">(Δ = </span>) </span>`
 				t.innerHTML += temp[temp.length - 1][1] + "°C";
 				document.getElementById("deltat").innerHTML += precise(diff) + "°C"
