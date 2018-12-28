@@ -7,7 +7,6 @@ body{
 #LiveInfo h1 {
     font-family: 'Trebuchet MS';
     color: white;
-    text-decoration: underline;
 }
 #LiveInfo h2 {
     font-family: 'Trebuchet MS';
@@ -20,6 +19,10 @@ body{
     margin-right: auto;
     display: block;
     margin-bottom: 2%;
+}
+
+#time {
+    font-size: 17px;
 }
 
 .meteo {

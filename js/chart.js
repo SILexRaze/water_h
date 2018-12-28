@@ -71,6 +71,7 @@ $(function () {
 				document.getElementById("deltat").innerHTML += precise(diff) + "°C"
 				document.getElementById("arrow").style.color = "white"
 				document.getElementById("txt").style.color = "white"
+				document.getElementById("time").innerHTML += Date(mesure[mesure.length - 1][0]).split(" ")[4] + ")"
 			}
 			$('#container').highcharts({
 				chart: {
