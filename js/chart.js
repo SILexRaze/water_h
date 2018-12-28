@@ -39,7 +39,7 @@ $(function () {
 			console.log(json);
 			var temp = formatTab(json, "temp")
 			var mesure = formatTab(json, "mesure")
-			var hum = formatTab(json, "humidity")
+			var pres = formatTab(json, "pressure")
 			var h = document.getElementById("actual_h")
 			var t = document.getElementById("actual_t")
 			if (h != null && t != null)
@@ -147,7 +147,7 @@ $(function () {
 				}, {
 					name: 'Pression (hPa)',
 					yAxis: 2,
-					data: hum
+					data: pres
 				}
 				]
 			});
