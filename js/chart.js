@@ -39,6 +39,7 @@ $(function () {
 			console.log(json);
 			var temp = formatTab(json, "temp")
 			var mesure = formatTab(json, "mesure")
+			var hum = formatTab(json, "humidity")
 			var h = document.getElementById("actual_h")
 			var t = document.getElementById("actual_t")
 			if (h != null && t != null)
@@ -56,7 +57,7 @@ $(function () {
 				else if (diff < 0)
 					h.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"></i> `
 				else
-					h.innerHTML = `<i class="fas fa-equals"></i> `
+					h.innerHTML = `<span id="arrow"><i class="fas fa-equals"></i></span></span> `
 				h.innerHTML += ` <span id="txt"><span id="deltah">(Δ = </span>) </span>`
 				h.innerHTML += mesure[mesure.length - 1][1] + "cm";
 				document.getElementById("deltah").innerHTML += diff + "cm"
@@ -66,7 +67,7 @@ $(function () {
 				else if (diff < 0)
 					t.innerHTML = `<i id="arrow" class="far fa-arrow-alt-circle-down"></i> `
 				else
-					t.innerHTML = `<i class="fas fa-equals"></i> `
+					t.innerHTML = `<span id="arrow"><i class="fas fa-equals"></i></span> `
 				t.innerHTML += ` <span id="txt"><span id="deltat">(Δ = </span>) </span>`
 				t.innerHTML += temp[temp.length - 1][1] + "°C";
 				document.getElementById("deltat").innerHTML += precise(diff) + "°C"
@@ -86,11 +87,53 @@ $(function () {
 						text: 'Date'
 					}
 				},
-				yAxis: {
+				yAxis: [{ // Primary yAxis
+					gridLineWidth: 0,
+					labels: {
+						format: '{value}°C',
+						style: {
+							color: Highcharts.getOptions().colors[1]
+						}
+					},
 					title: {
-						text: "Hauteur d'eau"
+						text: 'Temperature',
+						style: {
+							color: Highcharts.getOptions().colors[1]
+						}
+					},
+					opposite: true
+			
+				}, { // Secondary yAxis
+					gridLineWidth: 0,
+					title: {
+						text: 'Hauteur d\'eau',
+						style: {
+							color: Highcharts.getOptions().colors[0]
+						}
+					},
+					labels: {
+						format: '{value} cm',
+						style: {
+							color: Highcharts.getOptions().colors[0]
+						}
 					}
-				},
+			
+				}, { // Tertiary yAxis
+					gridLineWidth: 0,
+					title: {
+						text: 'Pression atmosphérique',
+						style: {
+							color: Highcharts.getOptions().colors[2]
+						}
+					},
+					labels: {
+						format: '{value} hPa',
+						style: {
+							color: Highcharts.getOptions().colors[2]
+						}
+					},
+					opposite: true
+				}],
 				plotOptions: {
 					spline: {
 						enableMouseTracking: true
@@ -98,10 +141,15 @@ $(function () {
 				},
 				series: [{
 					name: 'Mesure (cm)',
+					yAxis: 1,
 					data: mesure
 				}, {
 					name: 'Température (deg)',
 					data: temp
+				}, {
+					name: 'Pression (hPa)',
+					yAxis: 2,
+					data: hum
 				}
 				]
 			});
