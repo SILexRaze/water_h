@@ -6,10 +6,12 @@ body{
 
 #LiveInfo h1 {
     font-family: 'Trebuchet MS';
+    font-style: normal;
     color: white;
 }
 #LiveInfo h2 {
     font-family: 'Trebuchet MS';
+    font-style: normal;
     color: white;
 }
 
@@ -21,7 +23,8 @@ body{
     margin-bottom: 2%;
 }
 
-#time {
+#time, #txt{
+    color: white;
     font-size: 17px;
 }
 
@@ -72,6 +75,6 @@ body{
 
 }
 
-#arrow #txt {
+#sign {
   color:white;
 }
