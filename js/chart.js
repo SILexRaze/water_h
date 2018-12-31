@@ -1,4 +1,4 @@
-Highcharts.setOptions(Highcharts.theme);
+Highcharts.setOptions(Highcharts.theme)
 const	ajax = (json, method = "POST") => {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -73,7 +73,7 @@ $(function () {
 				document.getElementById("txt").style.color = "white"
 				document.getElementById("time").innerHTML += Date(mesure[mesure.length - 1][0]).split(" ")[4] + ")"
 			}
-			$('#container').highcharts({
+			Highcharts.stockChart('container', {
 				chart: {
 					type: "spline"
 				},
@@ -100,8 +100,7 @@ $(function () {
 							color: Highcharts.getOptions().colors[1]
 						}
 					},
-					opposite: true
-			
+					opposite: false
 				}, { // Secondary yAxis
 					gridLineWidth: 0,
 					title: {
@@ -116,11 +115,10 @@ $(function () {
 							color: Highcharts.getOptions().colors[0]
 						}
 					}
-			
 				}, { // Tertiary yAxis
 					gridLineWidth: 0,
 					title: {
-						text: 'Pression atmosphérique',
+						text: 'Pression atmospherique',
 						style: {
 							color: Highcharts.getOptions().colors[2]
 						}
@@ -131,8 +129,43 @@ $(function () {
 							color: Highcharts.getOptions().colors[2]
 						}
 					},
-					opposite: true
+					opposite: false
 				}],
+				rangeSelector: {
+					allButtonsEnabled: true,
+					buttons: [{
+						type: 'hour',
+						count: 1,
+						text: '1 Heure'
+					},{
+						type: 'hour',
+						count: 12,
+						text: '12 Heures'
+					},{
+						type: 'day',
+						count: 1,
+						text: '1 Jour'
+					}, {
+						type: 'day',
+						count: 3,
+						text: '3 Jours'
+					}, {
+						type: 'week',
+						count: 1,
+						text: '1 Semaine'
+					}, {
+						type: 'month',
+						count: 1,
+						text: '1 Mois'
+					}, {
+						type: 'all',
+						text: 'Tout'
+					}],
+					buttonTheme: {
+						width: 60
+					},
+					selected: 2
+				},
 				plotOptions: {
 					spline: {
 						enableMouseTracking: true
@@ -143,7 +176,7 @@ $(function () {
 					yAxis: 1,
 					data: mesure
 				}, {
-					name: 'Température (deg)',
+					name: 'Temperature (°C)',
 					data: temp
 				}, {
 					name: 'Pression (hPa)',

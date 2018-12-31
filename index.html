@@ -6,9 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="icon" type="image/png" href="src/ico.png" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
-		<script type="text/javascript" src="js/chart_theme.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+<script type="text/javascript" src="js/chart_theme.js"></script>
 		<script type="text/javascript" src="js/chart.js"></script>
 	</head>
 	<body>
@@ -19,7 +21,13 @@
 			<h1>Infos live : <span id="time">(</span></h1>
 				<h2>Hauteur d'eau : <span id="actual_h"></span></h2>
 				<h2>Température : <span id="actual_t"></span></h2>
-				<p id="txt">MàJ du 31/12/18 : Changement de disposition des informations live et des icones de variations relatives.</p>
+				<h4 id="txt">MàJ du 31/12/18 :</h4>
+				<ul id="txt">
+					<li>Changement de disposition des informations live et des icones de variations relatives.</li>
+					<li>Ajouts : differents boutons de zoom, selecteur de periode et options d'exportations du graph.</li>
+					<li>Mise en relation des 3 données (le curseur affiche 3 labels en meme temps).</li>
+					<li>Changement de cote des axes.</li>
+				</ul>
 				<script src="/code/highcharts-more.js"></script>
 				<script src="/code/modules/solid-gauge.js"></script>
 				<div class="outer">
