@@ -1,7 +1,7 @@
 # water_h
 
 ## Synopsis
-Water_H is a personnal project, i use an Arduino/RaspberryPi based installation to measure the water level of a river and make the live datas and history available online.
+Water_H is a personnal project, i use an Arduino/RaspberryPi based installation to measure the water level of a river and make the data (live and history) available online.
 
 ## Skills
 - Rigor
