@@ -11,3 +11,4 @@ Water_H is a personnal project, i use an Arduino/RaspberryPi based installation 
 - Front-end languages (js, html, css)
 - Unix scripting
 - Web server
+- Embedded systems
