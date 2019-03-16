@@ -13,4 +13,5 @@ then
 	cat /var/www/html/data.json | sed '/^\]$/d' | sed 's/\}$/\},/g' > /var/www/html/data2.json	
 	mv /var/www/html/data2.json /var/www/html/data.json
 	echo "\t{\n\t\t\"mesure\":$mesure,\n\t\t\"temp\":$temp,\n\t\t\"pressure\":$pres,\n\t\t\"date\":\"$date\"\n\t}\n]" >> /var/www/html/data.json
+	curl -d '{\n\t\"mesure\":$mesure,\n\t\"temp\":$temp,\n\t\"pressure\":$pres,\n\t\\"date\":\"$date\\"\n}' -H "Content-Type: application/json" -X POST https://api.myjson.com/bins
 fi
