@@ -22,8 +22,9 @@ $(function () {
 	ajax("/last.json")
 		.then((json) => {
 			console.log(json);
+			json.mesure = 47 - json.mesure;
 			document.getElementById("actual_h").innerHTML = json.temp + "°C"
-			document.getElementById("actual_p").innerHTML = json.pres + "hPa"
+			document.getElementById("actual_p").innerHTML = json.pressure + "hPa"
 			document.getElementById("actual_t").innerHTML = json.mesure + "cm"
 			document.getElementById("time").innerHTML = Date(json.mesure).split(" ")[4] + ")"
 			var gaugeOptions = {
