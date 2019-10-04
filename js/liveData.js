@@ -24,7 +24,7 @@ $(function () {
 			document.getElementById("actual_t").innerHTML = json.temp + " °C"
 			document.getElementById("actual_p").innerHTML = json.pressure + " hPa"
 			document.getElementById("actual_h").innerHTML = json.mesure + " cm"
-			document.getElementById("time").innerHTML = Date(json.mesure).split(" ")[4] + ")"
+			document.getElementById("time").innerHTML += Date(json.mesure).split(" ")[4] + ")"
 		}).catch((e) => {
 			console.log(e);
 		})
