@@ -18,60 +18,16 @@ const	ajax = (json, method = "POST") => {
 		})
 	});
 }
-const	formatTab = (json, key) => {
-	return json.reduce((acc, elem) => {
-		var splitDate = elem.date.split("/")
-		var d = Date.UTC(splitDate[2], splitDate[1] - 1, splitDate[0], splitDate[3], splitDate[4])
-		if (key == "mesure" && elem[key] != 0)
-			acc.push([d, 47 - elem[key]])
-		else if (elem[key] != 0)
-			acc.push([d, elem[key]])
-		return acc
-	}, [])
-}
-function precise(x) {
-	return Number.parseFloat(x).toPrecision(3);
-}
-var i = 0;
 $(function () {
 	ajax("/last.json")
 		.then((json) => {
 			console.log(json);
-			var temp = formatTab(json, "temp")
-			var mesure = formatTab(json, "mesure")
-			var pres = formatTab(json, "pressure")
-			var h = document.getElementById("actual_h")
-			var t = document.getElementById("actual_t")
 			if (h != null && t != null)
 			{
-				if (mesure[mesure.length - 1][1] > 25 || mesure[mesure.length - 1][1] < -25)
-					h.style.color = "red"
-				else
-					h.style.color = "green"
-				if (mesure.length > 1)
-					var diff = -1 * (mesure[mesure.length - 2][1] - mesure[mesure.length - 1][1])
-				if (diff > 0)
-					h.innerHTML = `<span id="sign">(↑)</span> `
-				else if (diff < 0)
-					h.innerHTML = `<span id="sign">(↓)</span> `
-				else
-					h.innerHTML = `<span id="sign">(=)</span> `
-				h.innerHTML += mesure[mesure.length - 1][1] + "cm";
-				h.innerHTML += ` <span id="txt"><span id="deltah">(Δ </span>) </span>`
-				document.getElementById("deltah").innerHTML += diff + "cm"
-				diff = temp[temp.length - 2][1] - temp[temp.length - 1][1]
-				if (diff < 0)
-					t.innerHTML = `<span id="sign">(↑)</span> `
-				else if (diff < 0)
-					t.innerHTML = `<span id="sign">(↓)</span> `
-				else
-					t.innerHTML = `<span id="sign">(=)</span> `
-				t.innerHTML += temp[temp.length - 1][1] + "°C";
-				t.innerHTML += ` <span id="txt"><span id="deltat">(Δ </span>) </span>`
-				document.getElementById("deltat").innerHTML += precise(diff) + "°C"
-				document.getElementById("sign").style.color = "white"
-				document.getElementById("txt").style.color = "white"
-				document.getElementById("time").innerHTML += Date(mesure[mesure.length - 1][0]).split(" ")[4] + ")"
+				document.getElementById("actual_h").innerHTML = json.temp + "°C"
+				document.getElementById("actual_p").innerHTML = json.pres + "hPa"
+				document.getElementById("actual_t").innerHTML = json.mesure + "cm"
+				document.getElementById("time").innerHTML = Date(json.mesure).split(" ")[4] + ")"
 			}
 			var gaugeOptions = {
 
