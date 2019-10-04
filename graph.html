@@ -14,28 +14,12 @@
 		<script src="https://code.highcharts.com/stock/modules/exporting.js?v=1.1"></script>
 		<script src="https://code.highcharts.com/stock/modules/export-data.js?v=1.1"></script>
 		<script type="text/javascript" src="js/chart_theme.js?v=1.1"></script>
-		<script type="text/javascript" src="js/gauge.js?v=1.1"></script>
+		<script type="text/javascript" src="js/chart.js?v=1.1"></script>
 	</head>
 	<body>
 
 		<img alt="logo water_h" src="src/water_h.png" id="logo" />
-		<div id="LiveInfo">
-			<h1>Infos live : <span id="time">(</span></h1>
-			<h2>Hauteur d'eau : <span id="actual_h"></span></h2>
-			<h2>Température : <span id="actual_t"></span></h2>
-			<!-- <h4 id="txt">MàJ du 31/12/18 :</h4>
-			<ul id="txt">
-				<li>Changement de disposition des informations live et des icones de variations relatives.</li>
-				<li>Ajouts : differents boutons de zoom, selecteur de periode et options d'exportations du graph.</li>
-				<li>Mise en relation des 3 données (le curseur affiche 3 labels en meme temps).</li>
-				<li>Changement de cote des axes.</li>
-			</ul> -->
-			<script src="/code/highcharts-more.js?v=1.1"></script>
-			<script src="/code/modules/solid-gauge.js?v=1.1"></script>
-			<div class="outer">
-				<div id="container-speed" class="container"></div>
-			</div>
-		</div>
+		<div id="container" style="height: 400px"></div>
 		<div id="bottom">
 			Made @ 42<br />Contact : vifonne@student.42.fr
 		</div>
