@@ -22,13 +22,10 @@ $(function () {
 	ajax("/last.json")
 		.then((json) => {
 			console.log(json);
-			if (h != null && t != null)
-			{
-				document.getElementById("actual_h").innerHTML = json.temp + "°C"
-				document.getElementById("actual_p").innerHTML = json.pres + "hPa"
-				document.getElementById("actual_t").innerHTML = json.mesure + "cm"
-				document.getElementById("time").innerHTML = Date(json.mesure).split(" ")[4] + ")"
-			}
+			document.getElementById("actual_h").innerHTML = json.temp + "°C"
+			document.getElementById("actual_p").innerHTML = json.pres + "hPa"
+			document.getElementById("actual_t").innerHTML = json.mesure + "cm"
+			document.getElementById("time").innerHTML = Date(json.mesure).split(" ")[4] + ")"
 			var gaugeOptions = {
 
 				chart: {
@@ -99,7 +96,7 @@ $(function () {
 
 				series: [{
 					name: 'Hauteur d\'eau',
-					data: [mesure[mesure.length - 1][1]],
+					data: json.mesure,
 					dataLabels: {
 						format: '<div style="text-align:center"><span style="font-size:25px;color:' +
 						((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
